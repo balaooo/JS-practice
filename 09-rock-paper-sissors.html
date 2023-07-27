@@ -18,15 +18,22 @@
     <button onclick="
     playGame('SISSORS')
     ">SISSORS</button>
-
+    
+    <p class="js-result"></p>
+    <p class="js-move-choosen"></p>
+    <p class="js-score"></p>
+    
     <button onclick="
     score.WINS = 0;
     score.LOSSES = 0;
     score.TIES = 0;
     localStorage.removeItem('score')
+    updateScore()
     ">
       Reset Score
     </button>
+
+    
 
 
     <script>
@@ -36,7 +43,9 @@
           LOSSES :0,
           Ties: 0
         };
-     
+
+      updateScore()
+      
       // if(!score){
       //   score = {
       //     WINS: 0,
@@ -52,7 +61,7 @@
                 
         if (playerMove === 'ROCK'){
           if(computerMove === 'ROCK'){
-            result='Tie';
+            result='Tie.';
           }else if (computerMove === 'SISSORS'){
             result='You win.'
           }else if (computerMove === 'PAPER'){
@@ -85,10 +94,18 @@
             score.TIES+=1;
         }
 
+        document.querySelector('.js-result')
+          .innerText = `${result}`;
+        document.querySelector('.js-move-choosen')
+          .innerText = `You ${playerMove}. - Computer ${computerMove}. `;
+        updateScore()
         localStorage.setItem('score', JSON.stringify(score))
+      }
+      
 
-        alert(`You pick ${playerMove}. Computer pick ${computerMove}. ${result}
-WIN: ${score.WINS}. LOSSES: ${score.LOSSES}. TIES: ${score.TIES}.`)
+
+      function updateScore(){
+        document.querySelector('.js-score').innerText = `WIN: ${score.WINS}. LOSSES: ${score.LOSSES}. TIES: ${score.TIES}.`;
       }
 
 

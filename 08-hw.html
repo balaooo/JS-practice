@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>objects</title>
+</head>
+<body>
+    <script>
+      /*
+      const product3 = {
+      name: 'shirt',
+      'delivery-time':'1 day',
+
+      rate : {
+        star: 4.5,
+        count: 87
+       }, 
+
+      fun: function function1(){
+        console.log('function inside object')
+      },
+    }
+    console.log(product3);
+    console.log(JSON.stringify(product3));
+    const jsonString = JSON.stringify(product3);
+    console.log(JSON.parse(jsonString));
+    */
+
+
+    /* 8a 8b 8c*/
+    const basketball = {
+      price: 2095,
+
+
+    }
+    basketball.price +=500;
+    basketball['delivery-time'] = '3days'
+    console.log(basketball.price)
+    console.log(basketball)
+
+    /* 8d */
+    const product1 = {
+      name:'sunscreen',
+      price: 200,
+    }
+
+     const product2 = {
+      name:'shampoo',
+      price: 700
+    }
+
+    function comparePrice (product1, product2){
+      if (product1.price < product2.price){
+        return product1;
+      } else {
+        return product2;
+      }
+    }
+
+
+
+    /* 8e */
+
+    function isTheSameProduct(product3, product4){
+      if(product3.name === product4.name && product3.price === product4.price){
+        return true
+      } else {
+        return false
+      }
+    }
+
+    //更簡便的寫法，條件符合就會回傳ture 不符合就會是false
+    /*
+    function isTheSameProduct(product3, product4){
+      return(
+        product3.name === product4.name &&
+        product4.price === product4.price
+      )
+    }
+    */
+
+    const product3 = {
+      name: 'shampoo',
+      price: 700
+    }
+
+    const product4 = {
+      name: 'shampoo',
+      price: 700
+    }
+
+
+    console.log(isTheSameProduct(product2, product4));
+
+    /* 8f 8g */
+    const greeting = 'GOOD MORNING!';
+    console.log(greeting.toLocaleLowerCase())
+    console.log(greeting.repeat(3))
+
+    </script>
+</body>
+</html>
