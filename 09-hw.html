@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 hw</title>
+</head>
+<body>
+  <!-- 9a -->
+  <button>9a</button>
+  <button class="btn">9b</button>
+
+  <button class="heads-btn" onclick="displayResult('heads')">heads</button>
+  <button class="tails-btn" onclick="displayResult('tails')">tails</button>
+  <p class="result"></p>
+
+  <input class="input-name" type="text" placeholder="Your name" onkeydown="enterData(event)">
+  <button class="submit-btn" onclick="displayName ()">Submit</button>
+  <p class="display-name"></p>
+  
+  
+  <script>
+    // console.log(document.querySelector('button'))
+    const btn9bElement = document.querySelector('.btn');
+    btn9bElement.innerText = '9b done!' ;
+
+    const result = document.querySelector('.result');
+    function displayResult(userChoice){
+      if (userChoice === 'heads') {
+        result.innerText = 'You chose heads.';
+      } else if (userChoice === 'tails'){
+        result.innerText = 'You chose tails.';
+      }
+    }
+    function displayName (){
+      const userName = document.querySelector('.input-name').value;
+      const displayName = document.querySelector('.display-name');
+      displayName.innerText = `Your name is ${userName}.`;
+
+    }
+
+    function enterData(event){
+      if (event.key === 'Enter'){
+        displayName();
+      }
+    }
+
+
+  </script>
+</body>
+</html>

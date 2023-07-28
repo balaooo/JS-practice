@@ -12,10 +12,19 @@
 
   <p>Amazon Shipping Calculator</p>
 
-  <input type="" placeholder="Cost of Order" onkeydown="console.log(event.key)">
+  <input type="" placeholder="Cost of Order" onkeydown="
+    handleCostKeydown (event)
+  ">
+  
   <button onclick="shippingCalculator()">Calculate</button>
   <p class="final-price"></p>
 
+  <input class="record-text" type="text" placeholder="type something" onkeyup="
+     const typedText = document.querySelector('.record-text').value;
+     document.querySelector('.display-text').innerText = typedText;
+    ">
+
+    <p class="display-text"></p>
 
 
   <script> 
@@ -42,16 +51,20 @@
     */
     function shippingCalculator(){
       const inputElement = document.querySelector('input');
-      let cost = Number(inputElement.value);
+      let cost = Number(inputElement.value)*100;
 
-      if (cost<40){
-        cost+=10
+      if (cost<4000){
+        cost+=1000
       }
       
-      document.querySelector('.final-price').innerText = `$${cost}`;
-
+      document.querySelector('.final-price').innerText = `$${cost/100}`;
     }
 
+    function handleCostKeydown (event){ //括號裡要放event我沒有很懂
+      if(event.key === 'Enter'){
+        shippingCalculator()
+      }
+    }
 
   </script>
 </body>
