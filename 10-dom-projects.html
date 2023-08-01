@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM projects</title>
+  <style>
+    .subscribe-btn{
+      background-color: black;
+      font-size: 20px;
+      color: white;
+      border-radius: 40px;
+      padding: 20px 40px;
+      cursor: pointer;
+    }
+    .subscribed-btn{
+      background-color: gray;
+      color: black;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <p>Youtube Subscribe Button</p>
+  <button onclick="subscribe()" class="js-subscibe-btn subscribe-btn">Subscribe</button>
+  
+
+  <p>Amazon Shipping Calculator</p>
+
+  <input type="" placeholder="Cost of Order" onkeydown="
+    handleCostKeydown (event)
+  ">
+  
+  <button onclick="shippingCalculator()">Calculate</button>
+  <p class="final-price"></p>
+
+  <input class="record-text" type="text" placeholder="type something" onkeyup="
+     const typedText = document.querySelector('.record-text').value;
+     document.querySelector('.display-text').innerText = typedText;
+    ">
+
+    <p class="display-text"></p>
+
+
+  <script> 
+    function subscribe(){
+      const buttonElement = document.querySelector('.js-subscibe-btn');
+
+      if (buttonElement.innerText === 'Subscribe'){
+        buttonElement.innerText = 'Subscribed';
+        buttonElement.classList.add('subscribed-btn');
+      } else {
+        buttonElement.innerText = 'Subscribe';
+        buttonElement.classList.remove('subscribed-btn');
+      }
+    }
+
+
+    /*
+    function shippingCalculator(costOfOrder){
+      costOfOrder = Number(document.querySelector('input').value);
+      if(costOfOrder < 40){
+        document.querySelector('.final-price').innerText = `$ ${costOfOrder+=10}`
+      } else{
+        document.querySelector('.final-price').innerText = `$ ${costOfOrder+=0}`
+      }
+    }
+    */
+    function shippingCalculator(){
+      const inputElement = document.querySelector('input');
+      let cost = Number(inputElement.value)*100;
+
+      if (cost<4000){
+        cost+=1000
+      }
+      
+      document.querySelector('.final-price').innerText = `$${cost/100}`;
+    }
+
+    function handleCostKeydown (event){ //括號裡要放event我沒有很懂
+      if(event.key === 'Enter'){
+        shippingCalculator()
+      }
+    }
+
+  </script>
+</body>
+</html>

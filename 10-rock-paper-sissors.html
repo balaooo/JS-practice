@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rock paper sissors</title>
+  <link rel="stylesheet" href="css/10-rock-paper-sissors.css">
+</head>
+<body>
+    <p>Rock Paper Sissors</p>
+    <button onclick="
+      playGame('ROCK')
+      ">ROCK</button>
+
+    <button onclick="
+    playGame('PAPER')
+    ">PAPER</button>
+  
+    <button onclick="
+    playGame('SISSORS')
+    ">SISSORS</button>
+
+    <p class="js-result"></p>
+    <p class="js-move"></p>
+    <p class="js-scores"></p>
+
+
+    <button class="js-reset-btn" onclick="
+    score.WINS = 0;
+    score.LOSSES = 0;
+    score.TIES = 0;
+    document.querySelector('.js-scores').innerText =`WIN: ${score.WINS}. LOSSES: ${score.LOSSES}. TIES: ${score.TIES}.`;
+    localStorage.removeItem('score');
+    ">
+      Reset Score
+    </button>
+    
+
+    <script src="js/10-rock-paper-sissors.js"></script>
+</body>
+</html>
